@@ -1,5 +1,6 @@
 import discord
-import from discord.ext import commands
+from discord.ext import commands
+import asyncio
 import os
 
 client = discord.Client()
@@ -34,35 +35,6 @@ async def on_message(message):
         		await message.channel.send(engdap[message.content])
         	except:
         		await message.channel.send("아직 모르는 단어예요!")
-        '''elif message.content == "랭조봇 안녕":
-            await message.channel.send("안녕하세요.")
-        elif message.content == "랭조봇 뭐해":
-            await message.channel.send("게임하... 아니 님하고 채팅하고 있었지요.")
-        elif message.content == "랭조봇 사랑해":
-            await message.channel.send("에?")
-        elif message.content == "랭조봇 사귀자":
-            await message.channel.send("에?")
-        elif message.content == "랭조봇 꺼져":
-            await message.channel.send("어떻게 그렇게 심한 말을!")
-        elif message.content == "랭조봇 둠피는?":
-            await message.channel.send("상향해야죠!")
-        elif message.content == "랭조봇 화":
-            await message.channel.send("||려한 조명이 나를 감싸네~||")
-        elif message.content == "랭조봇 존":
-            await message.channel.send("||시나||")
-        elif message.content == "랭조봇 ㅋㅋ":
-            await message.channel.send("루ㅋㅋ")
-        elif message.content == "랭조봇 mrpdjxmtld":
-            await message.channel.send("축하합니다! 당신은 이스터에그를 발견하셨습니다!\n고로 당신은 크리님의 서버에 들어올 수 있습니다\nhttps://discord.gg/gSuSAN2")
-        elif message.content == "랭조봇 크리멍청이":
-            await message.channel.send("아 숙녀 멍청이라고요?")
-        elif message.content == "랭조봇 ㅎㅇ":
-            await message.channel.send("안녕하세요.")
-        elif message.content == "랭조봇 ㅂㅇ":
-            await message.channel.send("안녕히계세요.")
-        elif message.content == "랭조봇 이스터에그":
-            await message.channel.send("그걸 알려줄 것 같냐? ㅋㅋㅋ.")
-        else:
-            await message.channel.send("아직 모르는 단어예요!")'''
+        
 client.run(os.environ['token'])
 
