@@ -65,4 +65,4 @@ async def on_message(message):
         else:
             await message.channel.send("아직 모르는 단어예요!")'''
 client.run(os.environ['token'])
-#client.run('OTU5NDQwNjQzNjExMDU4MjY2.Ykb6ug.KGMaw2n4Yado-MuhhwlP__518_Y')
+
