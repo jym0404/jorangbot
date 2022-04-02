@@ -25,11 +25,6 @@ async def on_message(message):
                 if not key == "조랭봇 mrpdjxmtld":
                     now = now + (key+": "+value+"\n-----------------------------------\n")
             await message.channel.send(now)
-        elif message.content == "조랭봇 서버멤버":
-            for member in message.guilds.members:
-                await message.channel.send("--------------------")
-                await message.channel.send(member)
-            await message.channel.send("--------------------")
         else:
         	try:
         		await message.channel.send(engdap[message.content])
