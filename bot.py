@@ -2,9 +2,7 @@ import discord
 from discord.ext import commands
 import asyncio
 import os
-
 client = discord.Client()
-
 @client.event
 async def on_ready():
     print('logged in')
@@ -26,10 +24,9 @@ async def on_message(message):
                     now = now + (key+": "+value+"\n-----------------------------------\n")
             await message.channel.send(now)
         else:
-        	try:
-        		await message.channel.send(engdap[message.content])
-        	except:
-        		await message.channel.send("아직 모르는 단어예요!")
-        
-client.run(os.environ['token'])
+            try:
+                await message.channel.send(engdap[message.content])
+            except:
+                await message.channel.send("아직 모르는 단어예요!")
 
+client.run(os.environ['token'])
