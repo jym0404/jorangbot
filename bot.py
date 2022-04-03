@@ -28,8 +28,7 @@ async def on_message(message):
         elif message.content == "조랭봇 내정보":
             user = message.author
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
-            await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}")
-            await message.channel.send(f"닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
+            await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
             await message.channel.send(message.author.avatar_url)
             await message.channel.send("소스 출처: 제이크#2214")
         else:
