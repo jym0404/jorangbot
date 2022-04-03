@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands
 import asyncio
 import os
+import datetime
+
 client = discord.Client()
 @client.event
 async def on_ready():
@@ -23,6 +25,13 @@ async def on_message(message):
                 if not key == "조랭봇 mrpdjxmtld":
                     now = now + (key+": "+value+"\n-----------------------------------\n")
             await message.channel.send(now)
+        elif message.content == "조랭봇 내정보":
+            user = message.author
+            date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
+            await message.channel.send(f"{message.author.mention}\n{message.author}의 가입일: {date.year}/{date.month}/{date.day}")
+            await message.channel.send(f"{message.author}의 닉네임/이름/아이디: {user.name}/{user.display_name}/{user.id}")
+            await message.channel.send(message.author.avatar_url)
+            await message.channel.send("소스 출처: 제이크#2214")
         else:
             try:
                 await message.channel.send(engdap[message.content])
