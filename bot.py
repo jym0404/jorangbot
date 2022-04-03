@@ -16,7 +16,7 @@ engdap = {"조랭봇 안녕":"안녕하세요!","조랭봇 안녕하세요":"안
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('조랭봇'):
+    if message.content.startswith('조랭봇 '):
         if message.content == "조랭봇":
             await message.channel.send("부르셨나요?")
         elif message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
