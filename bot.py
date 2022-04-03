@@ -17,7 +17,7 @@ async def on_message(message):
     if message.content.startswith('조랭봇'):
         if message.content == "조랭봇":
             await message.channel.send("부르셨나요?")
-        elif message.content == "조랭봇 도움말":
+        elif message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
             now = "-----------------------------------\n"
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
