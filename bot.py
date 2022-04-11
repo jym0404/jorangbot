@@ -34,7 +34,7 @@ async def on_message(message):
             try:
                 await message.channel.send(engdap[message.content])
             except:
-                await message.channel.send("아직 모르는 단어예요! \n조랭봇에게 단어를 가르치고 싶으시다면 kri#1896에게 문의해 주세요!\n(사소한 거라도 괜찮으니 제발 문의해 주세요...)")
+                await message.channel.send("아직 모르는 단어예요! \n조랭봇에게 단어를 가르치고 싶으시다면 <#963061416791773214>에서 문의해 주세요!\n(사소한 거라도 괜찮으니 제발 문의해 주세요...)")
     elif message.content == "조랭봇":
         await message.channel.send("부르셨나요?")
 
