@@ -23,26 +23,25 @@ async def on_message(message):
             now = "-----------------------------------\n"
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
-                    now = now + (key+": "+value+"\n-----------------------------------\n")
-            await message.channel.send(now)
-        elif message.startswith("조랭봇 등록"):
-            nowdeunglok = message.content[6:]
-            nowdeunglok = nowdeunglok.split(' ')
-            nowdeunglok = [nowdeunglok[0]," ".join(nowdeunglok[1:])]
-            deunglok[nowdeunglok[0]] = [nowdeunglok[1],message.author.name]
-            await message.channel.send(nowdeunglok[0]+"은(는) "+nowdeunglok[1]+" 이군요! 알려 주셔서 감사해요!")
-            await message.channel.send("부적절한 말을 등록하였을시 관리자에게 직접 삭제됩니다")
-            
-            author = await client.get_user("725688321992294501").create_dm()
-            await author.send(nowdeunglok)
-        elif message.startswith("조랭봇 삭제"):
-            if message.author.id == "725688321992294501" or message.author.id == 725688321992294501:
-                try:
-                    del(deunglok[message.content[7:]])
-                except:
-                    await message.channel.send("Error 404 can't find expected string")
-            else:
-                await message.channel.send("관리자만 이용할 수 있는 기능입니다!")
+                    isdupe = False
+                    engdapkey = list(engdap.keys())
+                    engdapkeyns = []
+                    for j in engdapkey:
+                        temp = j.replace(" ","")
+                        engdapkeyns.append(temp)
+                    for i in range(len(engdap)):
+                        if engdapkeyns.count(key.replace(" ","")) == 2:
+                            isdupe = True
+                    if not isdupe:
+                        now = now + (key+": "+value+"\n-----------------------------------\n")
+            schan = await message.author.create_dm()
+            await schan.send(now)
+        elif message.content == "조랭봇 내정보":
+            user = message.author
+            date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
+            await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
+            await message.channel.send(message.author.avatar_url)
+            await message.channel.send("소스 출처: 제이크#2214")
         else:
             try:
                 await message.channel.send(engdap[message.content])
