@@ -19,16 +19,16 @@ ope="+-*/1234567890"
 @client.event
 async def on_message(message):
     if message.content.startswith('조랭봇 '):
-        if message.content.startswith('조랭봇 계산 '):
-            calcstr = message.content[0:8]
-            if calcstr.content.find(ope) == len(calcstr):
-                try:
-                    await message.channel.send("정답은 "+eval(calcstr)+"이에요!")
-                except:
-                    await message.channel.send("올바르지 못한 형식이에요!")
-            else:
-                await message.channel.send("연산자와 숫자만 입력할 수 있어요!")
-        elif message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
+        #if message.content.startswith('조랭봇 계산 '):
+        #    calcstr = message.content[0:8]
+        #    if calcstr.content.find(ope) == len(calcstr):
+        #        try:
+        #            await message.channel.send("정답은 "+eval(calcstr)+"이에요!")
+        #        except:
+        #            await message.channel.send("올바르지 못한 형식이에요!")
+        #    else:
+        #        await message.channel.send("연산자와 숫자만 입력할 수 있어요!")
+        if message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
             now = "-----------------------------------\n"
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
