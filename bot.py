@@ -28,7 +28,7 @@ async def on_message(message):
                     await message.channel.send("올바르지 못한 형식이에요!")
             else:
                 await message.channel.send("연산자와 숫자만 입력할 수 있어요!")
-        if message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
+        elif message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
             now = "-----------------------------------\n"
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
