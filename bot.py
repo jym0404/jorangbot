@@ -27,7 +27,7 @@ async def on_message(message):
             await message.channel.send(str(checkope)+":checkope "+str(len(calcstr))+":len")
             if checkope == len(calcstr):
                 try:
-                    await message.channel.send("정답은 "+eval(calcstr)+"이에요!")
+                    await message.channel.send("정답은 "+str(eval(calcstr))+"이에요!")
                 except:
                     await message.channel.send("올바르지 못한 형식이에요!")
             else:
