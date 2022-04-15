@@ -24,7 +24,7 @@ async def on_message(message):
             checkope = 0
             for i in ope:
                 checkope = checkope + calcstr.count(i)
-            await message.channel.send(checkope+":checkope "+str(len(calcstr))+":len")
+            await message.channel.send(str(checkope)+":checkope "+str(len(calcstr))+":len")
             if checkope == len(calcstr):
                 try:
                     await message.channel.send("정답은 "+eval(calcstr)+"이에요!")
