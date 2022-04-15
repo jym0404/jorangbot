@@ -20,7 +20,7 @@ ope=["+","-","*","/","1","2","3","4","5","6","7","8","9","0"]
 async def on_message(message):
     if message.content.startswith('조랭봇 '):
         if message.content.startswith('조랭봇 계산 '):
-            calcstr = message.content[0:8]
+            calcstr = message.content[7:]
             checkope = 0
             for i in ope:
                 checkope = checkope + calcstr.count(i)
