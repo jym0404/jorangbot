@@ -52,11 +52,11 @@ async def on_message(message):
                 userid = int(message.content[8:].replace("<","").replace(">","").replace("@",""))
             except:
                 await message.channel.send("정확히 멘션을 해주세요!")
-            user = message.server.get_member(userid)
+            user = message.message.server.get_member(userid)
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
             await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
             await message.channel.send(message.author.avatar_url)
-            await message.channel.send("코드 출처: 제이크#2214 & 수많은 스택오버플로")
+            await message.channel.send("코드 출처: 제이크#2214 & 수많은 스택오버플로와 이름 모를 블로그")
         else:
             try:
                 await message.channel.send(engdap[message.content])
