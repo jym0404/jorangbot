@@ -49,20 +49,24 @@ async def on_message(message):
             await message.channel.send(message.author.avatar_url)
             await message.channel.send("코드 출처: 제이크#2214")
         elif message.content.startswith("조랭봇 유저정보 "):
-            await message.channel.send("유저정보 호출 감지")
             try:
                 userid = int(message.content[9:].replace("<","").replace(">","").replace("@",""))
-                await message.channel.send(userid)
             except:
                 await message.channel.send("정확히 멘션을 해주세요!")
-            await message.channel.send(message)
             user = await message.guild.query_members(user_ids=[userid]) # list of members with userid
             user = user[0]
-            await message.channel.send(user)
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
-            await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
-            await message.channel.send(message.author.avatar_url)
-            await message.channel.send("코드 출처: 제이크#2214 & 수많은 스택오버플로와 이름 모를 블로그")
+            #await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
+            #await message.channel.send(user.avatar_url)
+            #await message.channel.send("코드 출처: 제이크#2214 & 수많은 스택오버플로와 이름 모를 블로그")
+            embed=discord.Embed(title="Example Embed", description="이것은 Embed입니다.", color=0x00ff56)
+            embed.set_thumbnail(url=user.avatar_url)
+            embed.add_field(name="가입일", value={date.year}/{date.month}/{date.day}, inline=True)
+            embed.add_field(name="닉네임", value={user.name}, inline=True)
+            embed.add_field(name="서버 닉네임", value={user.display_name}, inline=True)
+            embed.add_field(name="아이디", value={user.id}, inline=True)
+            embed.set_footer(text="코드 출처: 제이크#2214 & 수많은 스택오버플로와 이름 모를 블로그")
+            await message.channel.send(embed=embed)
         else:
             try:
                 await message.channel.send(engdap[message.content])
