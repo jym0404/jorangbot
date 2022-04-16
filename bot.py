@@ -82,5 +82,7 @@ async def on_message(message):
                 await message.channel.send("아직 모르는 단어예요! \n조랭봇에게 단어를 가르치고 싶으시다면 <#963061416791773214>에서 문의해 주세요!\n(사소한 거라도 괜찮으니 제발 문의해 주세요...)")
     elif message.content == "조랭봇":
         await message.channel.send("부르셨나요?")
+    elif "<@959440643611058266>" in message.content:
+        await message.channel.send("누가 이 조랭봇님을 멘션했어?\nhttps://tenor.com/view/smirk-don-lee-ma-dong-seok-gif-23962224")
 
 client.run(os.environ['token'])
