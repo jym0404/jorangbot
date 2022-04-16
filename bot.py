@@ -40,8 +40,9 @@ async def on_message(message):
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
                     now = now + key+": "+value+"\n-----------------------------------\n"
-            schan = await message.author.create_dm()
-            await schan.send(now)
+            #schan = await message.author.create_dm()
+            #await schan.send(now)
+            await message.author.send(now)
         elif message.content == "조랭봇 내정보":
             user = message.author
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
