@@ -51,11 +51,11 @@ async def on_message(message):
             await message.channel.send("유저정보 호출 감지")
             try:
                 userid = int(message.content[9:].replace("<","").replace(">","").replace("@",""))
-                message.channel.send(userid)
+                await message.channel.send(userid)
             except:
                 await message.channel.send("정확히 멘션을 해주세요!")
             user = message.message.server.get_member(userid)
-            message.channel.send(user)
+            await message.channel.send(user)
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
             await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
             await message.channel.send(message.author.avatar_url)
