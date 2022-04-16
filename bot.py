@@ -56,9 +56,8 @@ async def on_message(message):
             except:
                 await message.channel.send("정확히 멘션을 해주세요!")
             await message.channel.send(message)
-            await message.channel.send(message.guild)
-            await message.channel.send(client.get_all_members())
-            user = get(client.get_all_members(), id=str(userid))
+            user = await message.guild.query_members(user_ids=[userid]) # list of members with userid
+            user = user[0]
             await message.channel.send(user)
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
             await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
