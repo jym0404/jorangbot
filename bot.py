@@ -38,7 +38,7 @@ async def on_message(message):
             now = "-----------------------------------\n"
             for key,value in engdap.items():
                 if not key == "조랭봇 mrpdjxmtld":
-                    now = now + (key+": "+value+"\n-----------------------------------\n")
+                    now = now + key+": "+value+"\n-----------------------------------\n"
             schan = await message.author.create_dm()
             await schan.send(now)
         elif message.content == "조랭봇 내정보":
@@ -56,7 +56,7 @@ async def on_message(message):
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
             await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
             await message.channel.send(message.author.avatar_url)
-            await message.channel.send("코드 출처: 제이크#2214")
+            await message.channel.send("코드 출처: 제이크#2214 & 수많은 스택오버플로")
         else:
             try:
                 await message.channel.send(engdap[message.content])
