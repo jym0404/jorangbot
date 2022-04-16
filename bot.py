@@ -47,6 +47,13 @@ async def on_message(message):
             await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
             await message.channel.send(message.author.avatar_url)
             await message.channel.send("코드 출처: 제이크#2214")
+        elif message.content.startswith("조랭봇 유저정보 "):
+            userid = message.content[8:].replace("<","").replace(">","").replace("@","")
+            user = message.server.get_member(userid))
+            date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
+            await message.channel.send(f"{message.author.mention}\n가입일: {date.year}/{date.month}/{date.day}\n닉네임: {user.name}\n서버 닉네임: {user.display_name}\n아이디: {user.id}")
+            await message.channel.send(message.author.avatar_url)
+            await message.channel.send("코드 출처: 제이크#2214")
         else:
             try:
                 await message.channel.send(engdap[message.content])
