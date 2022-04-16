@@ -49,7 +49,7 @@ async def on_message(message):
             await message.channel.send("코드 출처: 제이크#2214")
         elif message.content.startswith("조랭봇 유저정보 "):
             try:
-                userid = int(message.content[8:].replace("<","").replace(">","").replace("@",""))
+                userid = int(message.content[9:].replace("<","").replace(">","").replace("@",""))
             except:
                 await message.channel.send("정확히 멘션을 해주세요!")
             user = message.message.server.get_member(userid)
