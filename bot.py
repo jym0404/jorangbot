@@ -55,6 +55,7 @@ async def on_message(message):
             embed.add_field(name="서버 닉네임", value=user.display_name, inline=True)
             embed.add_field(name="아이디", value=user.id, inline=True)
             embed.set_footer(text="코드 출처: 제이크#2214")
+            await message.channel.send(embed=embed)
         elif message.content.startswith("조랭봇 유저정보 "):
             try:
                 userid = int(message.content[9:].replace("<","").replace(">","").replace("@",""))
