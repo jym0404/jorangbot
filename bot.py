@@ -32,7 +32,7 @@ async def on_message(message):
                     await message.channel.send("올바르지 못한 형식이에요!")
             else:
                 await message.channel.send("연산자와 숫자만 입력할 수 있어요!")
-        if message.content.startswith('조랭봇 글자길이 '):
+        elif message.content.startswith('조랭봇 글자길이 '):
             msg = message.content[9:]
             await message.channel.send(msg+"의 글자길이는 "+str(len(msg))+"글자에요!\n코드 출처: 누가 보고 있긴#1433")
         elif message.content == "조랭봇 도움말" or message.content == "조랭봇 명령어" or message.content == "조랭봇 커맨드":
