@@ -57,6 +57,7 @@ async def on_message(message):
                 await message.channel.send("정확히 멘션을 해주세요!")
             await message.channel.send(message)
             await message.channel.send(message.guild)
+            await message.channel.send(client.get_all_members())
             user = get(client.get_all_members(), id=str(userid))
             await message.channel.send(user)
             date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
