@@ -4,6 +4,7 @@ from discord.ext import commands
 import asyncio
 import os
 import datetime
+from keep_alive import keep_alive
 
 client = discord.Client()
 @client.event
@@ -86,4 +87,5 @@ async def on_message(message):
     elif "<@959440643611058266>" in message.content:
         await message.channel.send("누가 이 조랭봇님을 멘션했어?\nhttps://tenor.com/view/smirk-don-lee-ma-dong-seok-gif-23962224")
 
+keep_alive()
 client.run(os.environ['token'])
