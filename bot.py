@@ -34,6 +34,8 @@ async def on_message(message):
             if checkope == len(calcstr):
                 try:
                     await message.channel.send("정답은 "+str(eval(calcstr))+"이에요!")
+                except MemoryError:
+                    await message.channel.send("정답은... 펑:boom:")
                 except:
                     await message.channel.send("올바르지 못한 형식이에요!")
             else:
